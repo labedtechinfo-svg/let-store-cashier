@@ -197,9 +197,9 @@ function calc(){
 
 function clearAll(){
 
-    document.getElementById("total").value = 0;
-    document.getElementById("usd").value = 0;
-    document.getElementById("khr").value = 0;
+    document.getElementById("total").value || 0;
+    document.getElementById("usd").value || 0;
+    document.getElementById("khr").value || 0;
 
     document.getElementById("received").value = "";
     document.getElementById("changeusd").value = "";

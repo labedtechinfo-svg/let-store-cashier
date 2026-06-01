@@ -47,3 +47,30 @@
   <button onclick="clearAll()">🧹 CLEAR</button>
 
 </div>
+function calc(){
+
+let total=parseFloat(document.getElementById('total').value)||0;
+let usd=parseFloat(document.getElementById('usd').value)||0;
+let khr=parseFloat(document.getElementById('khr').value)||0;
+let rate=parseFloat(document.getElementById('rate').value)||4050;
+
+let received=usd+(khr/rate);
+let changeusd=received-total;
+let changekhr=changeusd*rate;
+
+document.getElementById('received').value =
+received.toLocaleString('en-US',{
+minimumFractionDigits:2,
+maximumFractionDigits:2
+});
+
+document.getElementById('changeusd').value =
+changeusd.toLocaleString('en-US',{
+minimumFractionDigits:2,
+maximumFractionDigits:2
+});
+
+document.getElementById('changekhr').value =
+Math.round(changekhr).toLocaleString('en-US');
+
+}

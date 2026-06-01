@@ -1,75 +1,49 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cashier Calculator</title>
-<style>
-body{font-family:Arial;background:#1f1f1f;color:white;padding:20px}
-.box{max-width:700px;margin:auto;background:#2b2b2b;padding:20px;border-radius:12px}
-h1{text-align:center}
-label{display:block;margin-top:12px}
-input{width:100%;padding:12px;font-size:24px;border-radius:8px;border:none;margin-top:5px}
-.result{background:#3a3a3a}
-</style>
-</head>
-<body>
-<div class="box">
 <h1>LET STORE CASHIER</h1>
 
-<label>Order Total ($)</label>
-<input id="total" type="number" value="0" oninput="calc()">
+<div class="row">
 
-<label>Customer Gives ($)</label>
-<input id="usd" type="number" value="0" oninput="calc()">
+  <div class="col">
 
-<label>Customer Gives (៛)</label>
-<input id="khr" type="number" value="0,000" oninput="calc()">
+    <label>Order Total ($)</label>
 
-<label>Exchange Rate</label>
-<input id="rate" type="number" value="0,000" oninput="calc()">
+    <input id="total" type="number" value="0">
 
-<hr>
+    <label>Customer Gives ($)</label>
 
-<label>Total Received ($)</label>
-<input id="received" class="result" readonly>
+    <input id="usd" type="number" value="0">
 
-<label>Change ($)</label>
-<input id="changeusd" class="result" readonly>
+    <label>Change Given ($)</label>
 
-<label>Change (៛)</label>
-<input id="changekhr" class="result" readonly>
+    <input id="changeusd" class="result" readonly>
+
+  </div>
+
+  <div class="col">
+
+    <label>Exchange Rate</label>
+
+    <input id="rate" type="number" value="4050">
+
+    <label>Customer Gives (៛)</label>
+
+    <input id="khr" type="number" value="0">
+
+    <label>Change Given (៛)</label>
+
+    <input id="changekhr" class="result" readonly>
+
+  </div>
 
 </div>
 
-<script>
-function calc(){
-let total=parseFloat(document.getElementById('total').value)||0;
-let usd=parseFloat(document.getElementById('usd').value)||0;
-let khr=parseFloat(document.getElementById('khr').value)||0;
-let rate=parseFloat(document.getElementById('rate').value)||0;
+<label>Total Received ($)</label>
 
-let received=usd+(khr/rate);
-let changeusd=received-total;
-let changekhr=changeusd*rate;
+<input id="received" class="result" readonly>
 
-document.getElementById('received').value =
-received.toLocaleString('en-US',{
-minimumFractionDigits:2,
-maximumFractionDigits:2
-});
+<div class="buttons">
 
-document.getElementById('changeusd').value =
-changeusd.toLocaleString('en-US',{
-minimumFractionDigits:2,
-maximumFractionDigits:2
-});
+  <button onclick="calc()">🧮 CALCULATE</button>
 
-document.getElementById('changekhr').value =
-Math.round(changekhr).toLocaleString('en-US');
-}
-calc();
-</script>
-</body>
-</html>
+  <button onclick="clearAll()">🧹 CLEAR</button>
+
+</div>

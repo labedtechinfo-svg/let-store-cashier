@@ -47,42 +47,57 @@
   <button onclick="clearAll()">🧹 CLEAR</button>
 
 </div>
-function calc(){
+[6/1/2026 11:12 AM] Phang Seyha: <div style="margin-top:20px;text-align:center;">
+  <button onclick="calc()"
+    style="padding:12px 30px;font-size:22px;font-weight:bold;
+    background:#28a745;color:white;border:none;border-radius:8px;cursor:pointer;">
+    🧮 CALCULATE
+  </button>
 
-let total=parseFloat(document.getElementById('total').value)||0;
-let usd=parseFloat(document.getElementById('usd').value)||0;
-let khr=parseFloat(document.getElementById('khr').value)||0;
-let rate=parseFloat(document.getElementById('rate').value)||4050;
+  <button onclick="clearAll()"
+    style="padding:12px 30px;font-size:22px;font-weight:bold;
+    background:#dc3545;color:white;border:none;border-radius:8px;
+    cursor:pointer;margin-left:15px;">
+    🧹 CLEAR
+  </button>
+</div>
+[6/1/2026 11:13 AM] Phang Seyha: <script>
+function calc() {
 
-let received=usd+(khr/rate);
-let changeusd=received-total;
-let changekhr=changeusd*rate;
+  let total = parseFloat(document.getElementById('total').value) || 0;
+  let usd = parseFloat(document.getElementById('usd').value) || 0;
+  let khr = parseFloat(document.getElementById('khr').value) || 0;
+  let rate = parseFloat(document.getElementById('rate').value) || 4050;
 
-document.getElementById('received').value =
-received.toLocaleString('en-US',{
-minimumFractionDigits:2,
-maximumFractionDigits:2
-});
+  let received = usd + (khr / rate);
+  let changeusd = received - total;
+  let changekhr = changeusd * rate;
 
-document.getElementById('changeusd').value =
-changeusd.toLocaleString('en-US',{
-minimumFractionDigits:2,
-maximumFractionDigits:2
-});
+  document.getElementById('received').value =
+    received.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
 
-document.getElementById('changekhr').value =
-Math.round(changekhr).toLocaleString('en-US');
+  document.getElementById('changeusd').value =
+    changeusd.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
 
+  document.getElementById('changekhr').value =
+    Math.round(changekhr).toLocaleString('en-US');
 }
-function clearAll(){
 
-document.getElementById('total').value = 0;
-document.getElementById('usd').value = 0;
-document.getElementById('khr').value = 0;
-document.getElementById('rate').value = 4050;
+function clearAll() {
 
-document.getElementById('received').value = '';
-document.getElementById('changeusd').value = '';
-document.getElementById('changekhr').value = '';
+  document.getElementById('total').value = 0;
+  document.getElementById('usd').value = 0;
+  document.getElementById('khr').value = 0;
+  document.getElementById('rate').value = 4050;
 
+  document.getElementById('received').value = '';
+  document.getElementById('changeusd').value = '';
+  document.getElementById('changekhr').value = '';
 }
+</script>

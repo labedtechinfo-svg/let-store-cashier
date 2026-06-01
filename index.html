@@ -19,13 +19,13 @@ input{width:100%;padding:12px;font-size:24px;border-radius:8px;border:none;margi
 <h1>LET STORE CASHIER</h1>
 
 <label>Order Total ($)</label>
-<input id="total" type="number" value="200.50" oninput="calc()">
+<input id="total" type="number" value="0" oninput="calc()">
 
 <label>Customer Gives ($)</label>
-<input id="usd" type="number" value="100.00" oninput="calc()">
+<input id="usd" type="number" value="0" oninput="calc()">
 
 <label>Customer Gives (៛)</label>
-<input id="khr" type="number" value="100,000" oninput="calc()">
+<input id="khr" type="number" value="000,000" oninput="calc()">
 
 <label>Exchange Rate</label>
 <input id="rate" type="number" value="4,050" oninput="calc()">
@@ -48,7 +48,7 @@ function calc(){
 let total=parseFloat(document.getElementById('total').value)||0;
 let usd=parseFloat(document.getElementById('usd').value)||0;
 let khr=parseFloat(document.getElementById('khr').value)||0;
-let rate=parseFloat(document.getElementById('rate').value)||4050;
+let rate=parseFloat(document.getElementById('rate').value)||0;
 
 let received=usd+(khr/rate);
 let changeusd=received-total;
